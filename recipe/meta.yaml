@@ -33,7 +33,7 @@ test:
     - pip
   commands:
     - pip check
-    - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
+    - python -c "import jaraco.classes.properties as p; assert hasattr(p, 'NonDataProperty')"
 
 about:
   home: https://github.com/jaraco/jaraco.classes
