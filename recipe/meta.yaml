@@ -28,12 +28,18 @@ test:
   imports:
     - jaraco
     - jaraco.classes
+    - jaraco.classes.ancestry
+    - jaraco.classes.meta
     - jaraco.classes.properties
+  files:
+    - test_jaraco_classes.py
   requires:
     - pip
+    - pytest
   commands:
     - pip check
     - python -c "import jaraco.classes.properties as p; assert hasattr(p, 'NonDataProperty')"
+    - pytest -v --color=yes test_jaraco_classes.py
 
 about:
   home: https://github.com/jaraco/jaraco.classes
