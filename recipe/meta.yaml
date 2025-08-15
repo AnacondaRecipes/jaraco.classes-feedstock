@@ -28,6 +28,7 @@ test:
   imports:
     - jaraco
     - jaraco.classes
+    - jaraco.classes.properties
   requires:
     - pip
   commands:
@@ -39,10 +40,10 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'jaraco.classes'
-  description: 'For Enterprise. Available as part of the Tidelift Subscription'
+  summary: Utility functions for Python class constructs
+  description: jaraco.classes
   dev_url: https://github.com/jaraco/jaraco.classes
-  doc_url: https://github.com/jaraco/jaraco.classes/tree/main/docs
+  doc_url: https://jaracoclasses.readthedocs.io/en/latest
 
 extra:
   recipe-maintainers:
