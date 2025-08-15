@@ -1,5 +1,5 @@
 {% set name = "jaraco.classes" %}
-{% set version = "3.2.1" %}
+{% set version = "3.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,26 +7,32 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: ed54b728af1937dc16b7236fbaf34ba561ba1ace572b03fffa5486ed363ecf34
+  sha256: 47a024b51d0239c0dd8c8540c6c7f484be3b8fcf0b2d85c13825780d3b3f3acd
 
 build:
-  noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
-  
+  skip: True  # [py<38]
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
+
 requirements:
   host:
-    - python >=3.6
+    - python
+    - setuptools >=56
+    - setuptools-scm >=3.4.1
     - pip
-    - setuptools_scm >=3.4.1
   run:
-    - python >=3.6
+    - python
     - more-itertools
 
 test:
   imports:
     - jaraco
     - jaraco.classes
+  requires:
+    - pip
+  commands:
+    - pip check
+    - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
 
 about:
   home: https://github.com/jaraco/jaraco.classes
@@ -34,7 +40,9 @@ about:
   license_family: MIT
   license_file: LICENSE
   summary: 'jaraco.classes'
+  description: 'For Enterprise. Available as part of the Tidelift Subscription'
   dev_url: https://github.com/jaraco/jaraco.classes
+  doc_url: https://github.com/jaraco/jaraco.classes/tree/main/docs
 
 extra:
   recipe-maintainers:
