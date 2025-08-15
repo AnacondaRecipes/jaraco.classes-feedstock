@@ -41,9 +41,11 @@ about:
   license_family: MIT
   license_file: LICENSE
   summary: Utility functions for Python class constructs
-  description: jaraco.classes
+  description: |
+    jaraco.classes provides additional routines for obtaining the class names of an object and its parent classes,
+    some useful metaclasses and methods for class properties
   dev_url: https://github.com/jaraco/jaraco.classes
-  doc_url: https://jaracoclasses.readthedocs.io/en/latest
+  doc_url: https://jaracoclasses.readthedocs.io
 
 extra:
   recipe-maintainers:
